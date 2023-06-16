@@ -82,7 +82,8 @@ RUN \
         && apt clean \
         && rm -rf /var/lib/apt/lists/* /var/tmp/*
 
-COPY php-custom.ini /etc/php/${PHP_VERSION}/conf.d/
+COPY php-custom.ini /etc/php/${PHP_VERSION}/fpm/conf.d/
+COPY php-custom.ini /etc/php/${PHP_VERSION}/cli/conf.d/
 
 WORKDIR /var/www
 
@@ -112,4 +113,4 @@ RUN \
         && apt clean \
         && rm -rf /var/lib/apt/lists/* /var/tmp/*
 
-COPY 50_xdebug.ini /etc/php/${PHP_VERSION}/conf.d/
+COPY xdebug.ini /etc/php/${PHP_VERSION}/mods-available/
