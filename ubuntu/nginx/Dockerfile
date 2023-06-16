@@ -19,7 +19,7 @@ RUN \
     #---------------------------------------------------------------------------
         && apt install -y nginx \
         && sed -i 's/user .*;/user laravel;/' /etc/nginx/nginx.conf \
-        && sed -i 's/# gzip_/gzip_/' /etc/nginx/nginx.conf \
+        && sed -i 's/#\s*gzip/gzip/' /etc/nginx/nginx.conf \
     #---------------------------------------------------------------------------
     # Post-Installation Cleanup
     #---------------------------------------------------------------------------
