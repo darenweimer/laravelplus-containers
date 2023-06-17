@@ -22,9 +22,9 @@ RUN \
         && apk add --no-cache \
             php${PHP_VERSION} \
             php${PHP_VERSION}-fpm \
-        && sed -i 's/user = .*/user = laravel/' /etc/php${PHP_VERSION}/php-fpm.d/www.conf \
-        && sed -i 's/group = .*/group = laravel/' /etc/php${PHP_VERSION}/php-fpm.d/www.conf \
-        && sed -i 's/listen = .*/listen = 0.0.0.0:9000/' /etc/php${PHP_VERSION}/php-fpm.d/www.conf \
+        && sed -i 's/^\(\s*user\s*=\s*\).*/\1laravel/' /etc/php${PHP_VERSION}/php-fpm.d/www.conf \
+        && sed -i 's/^\(\s*group\s*=\s*\).*/\1laravel/' /etc/php${PHP_VERSION}/php-fpm.d/www.conf \
+        && sed -i 's/^\(\s*listen\s*=\s*\).*/\10.0.0.0:9000/' /etc/php${PHP_VERSION}/php-fpm.d/www.conf \
         && ln -sf /usr/bin/php${PHP_VERSION} /usr/bin/php \
     #---------------------------------------------------------------------------
     # Install PHP Extensions

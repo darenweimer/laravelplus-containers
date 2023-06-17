@@ -27,9 +27,9 @@ RUN \
         && apt install -y \
             php${PHP_VERSION} \
             php${PHP_VERSION}-fpm \
-        && sed -i 's/user = .*/user = laravel/' /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf \
-        && sed -i 's/group = .*/group = laravel/' /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf \
-        && sed -i 's/listen = .*/listen = 0.0.0.0:9000/' /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf \
+        && sed -i 's/^\(\s*user\s*=\s*\).*/\1laravel/' /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf \
+        && sed -i 's/^\(\s*group\s*=\s*\).*/\1laravel/' /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf \
+        && sed -i 's/^\(\s*listen\s*=\s*\).*/\10.0.0.0:9000/' /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf \
         && mkdir -p /run/php \
         && touch /run/php/php8.2-fpm.sock \
     #---------------------------------------------------------------------------
