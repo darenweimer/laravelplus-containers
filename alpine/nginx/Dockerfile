@@ -16,8 +16,8 @@ RUN \
     # Install Nginx
     #---------------------------------------------------------------------------
         && apk add --no-cache nginx \
-        && sed -i 's/user .*;/user laravel;/' /etc/nginx/nginx.conf \
-        && sed -i 's/#\s*gzip/gzip/' /etc/nginx/nginx.conf
+        && sed -i 's/^\(\s*user\s\).*;/\1laravel;/' /etc/nginx/nginx.conf \
+        && sed -i 's/^\(\s*\)#\s*gzip\(\s\|_\)/\1gzip\2/' /etc/nginx/nginx.conf
 
 COPY default.conf /etc/nginx/http.d/
 
