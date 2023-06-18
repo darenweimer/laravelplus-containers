@@ -23,6 +23,4 @@ RUN \
 
 WORKDIR /var/www
 
-USER laravel
-
 CMD tail -f /dev/null
