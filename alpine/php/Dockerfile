@@ -34,6 +34,7 @@ RUN \
             php${PHP_VERSION}-cli \
             php${PHP_VERSION}-ctype \
             php${PHP_VERSION}-curl \
+            php${PHP_VERSION}-dom \
             php${PHP_VERSION}-fileinfo \
             php${PHP_VERSION}-gd \
             php${PHP_VERSION}-imap \
@@ -53,6 +54,8 @@ RUN \
             php${PHP_VERSION}-soap \
             php${PHP_VERSION}-tokenizer \
             php${PHP_VERSION}-xml \
+            php${PHP_VERSION}-xmlreader \
+            php${PHP_VERSION}-xmlwriter \
             php${PHP_VERSION}-zip \
     #---------------------------------------------------------------------------
     # Install Composer
