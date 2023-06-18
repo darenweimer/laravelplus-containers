@@ -13,7 +13,7 @@ title()
 
 create_builder()
 {
-    title 'Create Temporary Buildx Builder'
+    title "Create Temporary Buildx Builder"
 
     docker buildx create \
         --name bob_the_buildx \
@@ -24,7 +24,7 @@ create_builder()
 
 delete_builder()
 {
-    title 'Delete Temporary Buildx Builder'
+    title "Delete Temporary Buildx Builder"
 
     docker buildx rm bob_the_buildx
 }
