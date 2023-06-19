@@ -16,7 +16,7 @@ RUN \
     # Add Laravel User/Group
     #---------------------------------------------------------------------------
         && groupadd -g 1000 laravel \
-        && useradd -u 1000 -g 1000 -M laravel \
+        && useradd -u 1000 -g 1000 -m laravel \
         && usermod -L laravel \
     #---------------------------------------------------------------------------
     # Install PHP
