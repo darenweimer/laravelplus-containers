@@ -1,10 +1,6 @@
 services:
     nginx:
-        image: laravel/nginx
-        build:
-            context: nginx
-            args:
-                UBUNTU_VERSION: 22.04
+        image: laravelplus/nginx:ubuntu22.04
         volumes:
             - shared:/var/www:delegated
         ports:
@@ -13,34 +9,17 @@ services:
             - php
         restart: unless-stopped
     php:
-        image: laravel/php
-        build:
-            context: php
-            target: production
-            args:
-                UBUNTU_VERSION: 22.04
-                PHP_VERSION: 8.2
+        image: laravelplus/php:8.2-ubuntu22.04
         volumes:
             - shared:/var/www:delegated
         restart: unless-stopped
     php-dev:
-        image: laravel/php-dev
-        build:
-            context: php
-            target: development
-            args:
-                UBUNTU_VERSION: 22.04
-                PHP_VERSION: 8.2
+        image: laravelplus/php:8.2-ubuntu22.04-dev
         volumes:
             - shared:/var/www:delegated
         restart: unless-stopped
     node:
-        image: laravel/node
-        build:
-            context: node
-            args:
-                UBUNTU_VERSION: 22.04
-                NODE_VERSION: 18
+        image: laravelplus/node:18-ubuntu22.04
         volumes:
             - shared:/var/www:delegated
         restart: unless-stopped

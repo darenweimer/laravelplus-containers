@@ -1,10 +1,6 @@
 services:
     nginx:
-        image: laravel/nginx
-        build:
-            context: nginx
-            args:
-                ALPINE_VERSION: 3.18
+        image: laravelplus/nginx:alpine3.18
         volumes:
             - shared:/var/www:delegated
         ports:
@@ -13,33 +9,17 @@ services:
             - php
         restart: unless-stopped
     php:
-        image: laravel/php
-        build:
-            context: php
-            target: production
-            args:
-                ALPINE_VERSION: 3.18
-                PHP_VERSION: 82
+        image: laravelplus/php:8.2-alpine3.18
         volumes:
             - shared:/var/www:delegated
         restart: unless-stopped
     php-dev:
-        image: laravel/php-dev
-        build:
-            context: php
-            target: development
-            args:
-                ALPINE_VERSION: 3.18
-                PHP_VERSION: 82
+        image: laravelplus/php:8.2-alpine3.18-dev
         volumes:
             - shared:/var/www:delegated
         restart: unless-stopped
     node:
-        image: laravel/node
-        build:
-            context: node
-            args:
-                ALPINE_VERSION: 3.18
+        image: laravelplus/node:18-alpine3.18
         volumes:
             - shared:/var/www:delegated
         restart: unless-stopped
